@@ -4,6 +4,9 @@ import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './pages/Login/index.tsx'
+import Moradores from './pages/Moradores/index.tsx'
+import Encomendas from './pages/Encomendas/index.tsx'
+import Funcionarios from './pages/Funcionarios/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -20,15 +23,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/moradores",
-        element: <div>Moradores page</div>
+        element: <Moradores />
       },
       {
         path: "/encomendas",
-        element: <div>Encomendas page</div>
+        element: <Encomendas />
       },
       {
         path: "/funcionarios",
-        element: <div>Funcionarios page</div>
+        element: <Funcionarios />
       },
     ]
   }

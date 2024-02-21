@@ -1,0 +1,22 @@
+[
+    {"bloco": "A", "apartamento": 78, "morador": "Mariana de Oliveira", "proprietario": "Mariana Silva"},
+    {"bloco": "C", "apartamento": 55, "morador": "Antônio da Silva", "proprietario": "Antônio Santos"},
+    {"bloco": "B", "apartamento": 19, "morador": "Fernanda Pereira", "proprietario": "Pedro Fernandes"},
+    {"bloco": "D", "apartamento": 38, "morador": "Gustavo Almeida", "proprietario": "Gustavo Lima"},
+    {"bloco": "A", "apartamento": 94, "morador": "Aline dos Santos", "proprietario": "Aline Oliveira"},
+    {"bloco": "C", "apartamento": 12, "morador": "Carlos da Costa", "proprietario": "Carlos Pereira"},
+    {"bloco": "B", "apartamento": 86, "morador": "Juliana Lima Pereira", "proprietario": "Lucas da Costa"},
+    {"bloco": "D", "apartamento": 43, "morador": "Paulo Roberto", "proprietario": "Paulo Alves"},
+    {"bloco": "A", "apartamento": 61, "morador": "Renata da Silva", "proprietario": "Renata Oliveira"},
+    {"bloco": "B", "apartamento": 33, "morador": "Bruno da Costa", "proprietario": "Bruno Lima"},
+    {"bloco": "C", "apartamento": 79, "morador": "Amanda Almeida", "proprietario": "Amanda Santos"},
+    {"bloco": "D", "apartamento": 20, "morador": "Lucas dos Santos", "proprietario": "Lucas Almeida"},
+    {"bloco": "A", "apartamento": 97, "morador": "Tatiane de Oliveira", "proprietario": "Tatiane Silva"},
+    {"bloco": "B", "apartamento": 51, "morador": "Rodrigo da Costa", "proprietario": "Rodrigo Almeida"},
+    {"bloco": "C", "apartamento": 66, "morador": "Márcia Lima", "proprietario": "Márcia da Silva"},
+    {"bloco": "D", "apartamento": 28, "morador": "Cristina Alves", "proprietario": "Cristina Oliveira"},
+    {"bloco": "A", "apartamento": 88, "morador": "Vinícius de Oliveira", "proprietario": "Vinícius da Silva"},
+    {"bloco": "B", "apartamento": 17, "morador": "Ana Luiza Almeida", "proprietario": "Ana Luiza da Costa"},
+    {"bloco": "C", "apartamento": 72, "morador": "Rafael dos Santos", "proprietario": "Rafael da Silva"},
+    {"bloco": "D", "apartamento": 41, "morador": "Larissa da Costa", "proprietario": "Larissa Oliveira"}
+]
