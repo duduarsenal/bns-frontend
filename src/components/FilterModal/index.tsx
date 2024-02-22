@@ -1,5 +1,5 @@
 import { IoClose } from "react-icons/io5";
-import ButtonIcon from "../ButtonIcon";
+import ButtonIcon from "../Button";
 import { FiFilter } from "react-icons/fi";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

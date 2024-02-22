@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom"
 import Input from "../../components/InputText";
-import ButtonIcon from "../../components/ButtonIcon";
+import Button from "../../components/Button";
 import { FiFilter } from "react-icons/fi";
 import { PiPlusBold } from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
 import MoradorCard from "../../components/MoradorCard";
 import ListaMoradores from '../../../public/db.json';
 import FilterModal from "../../components/FilterModal";
+import NovoMoradorModal from "../../components/NovoMoradorModal";
 
 export default function Moradores(){
 
     const setSideBar: React.ComponentState = useOutletContext();
     const [search, setSearch] = useState<string>('');
     const [filterStatus, setFilterStatus] = useState<boolean>(false);
+    const [novoMoradorStatus, setNovoMoradorStatus] = useState<boolean>(false);
 
     useEffect(() => {
         setSideBar({status: true, page: 'moradores'})
@@ -34,18 +36,19 @@ export default function Moradores(){
                     className="rounded-3xl w-[450px] px-4 bg-[#4C9773] !text-[18px] h-12 text-[#F7FEDD] placeholder:text-[#F7FEDD90] pl-10"
                 />
                 <div className="relative">  
-                    <ButtonIcon 
+                    <Button 
                         icon={<FiFilter />}
                         onClick={() => setFilterStatus(true)}
                         className="bg-[#4C9773] p-2 rounded-full text-[30px] text-[#F7FEDD]"
                     />
                     <FilterModal status={filterStatus} setFilterStatus={setFilterStatus}/>
                 </div>
-                    <ButtonIcon 
+                    <Button
                         icon={<PiPlusBold />}
-                        onClick={() => console.log('click no mais')}
+                        onClick={() => setNovoMoradorStatus(true)}
                         className="bg-[#4C9773] w-12 h-12 p-2 rounded-full text-[30px] text-[#F7FEDD]"
                     />
+                    <NovoMoradorModal status={novoMoradorStatus} setNovoMoradorStatus={setNovoMoradorStatus}/>
             </div>
             <ul className="flex flex-col w-full gap-2">
                 {ListaMoradores.map((morador) => (
