@@ -15,7 +15,7 @@ export default function Input({label, type, placeholder, value, icon, error, inp
                 placeholder={placeholder}
                 value={value || ''}
                 onChange={props.onChange}
-                className={`${props.className} w-[350px] h-[35px] outline-none rounded-sm bg-transparent`}
+                className={`${props.className} min-w-[350px] min-h-[35px] outline-none`}
                 />
             </label>
             {error && (
