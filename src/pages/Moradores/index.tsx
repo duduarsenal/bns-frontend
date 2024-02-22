@@ -51,12 +51,13 @@ export default function Moradores(){
                     <NovoMoradorModal status={novoMoradorStatus} setNovoMoradorStatus={setNovoMoradorStatus}/>
             </div>
             <ul className="flex flex-col w-full gap-2">
-                {ListaMoradores.map((morador) => (
+                {ListaMoradores.moradores.map((morador) => (
                     <MoradorCard 
                         bloco={morador.bloco}
                         apartamento={morador.apartamento}
                         morador={morador.morador}
                         proprietario={morador.proprietario}
+                        className="hover:scale-[1.02] transition-all hover:bg-[#4C977320]"
                     />
                 ))}
             </ul>
