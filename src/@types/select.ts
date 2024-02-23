@@ -4,4 +4,6 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
     item: string; 
     setItem: React.SetStateAction<any>;
     resetSelect: boolean;
+    theme?: string;
+    isAbsolute?: boolean;
 }

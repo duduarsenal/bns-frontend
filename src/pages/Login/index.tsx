@@ -41,22 +41,18 @@ export default function Login() {
           <Input
             type="email"
             label="E-mail"
-            inputID="email"
             placeholder="funcionario@email.com"
             value={userInfo.email}
             error={error}
             onChange={(e) => setUserInfo((prevState) => ({ ...prevState, email: e.target.value}))}
-            className="border-b-[3px] border-solid border-[#124C38] px-1"
           />
           <Input
             type="password"
             label="Senha"
-            inputID="password"
             placeholder="senhaforte123@"
             value={userInfo.password}
             error={error}
             onChange={(e) => setUserInfo((prevState) => ({ ...prevState, password: e.target.value}))}
-            className="border-b-[3px] border-solid border-[#124C38] px-1"
           />
           <div className="flex justify-end w-full">
             <span className="cursor-pointer text-[#4C9773] font-medium transition-all hover:bg-[#124C3830] px-2 rounded-md">Esqueceu a senha?</span>

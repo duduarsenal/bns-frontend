@@ -6,7 +6,7 @@ import { MdLogout } from "react-icons/md";
 export default function SideBar({status, page}: ISidebarProps){
     
     return (
-        <section className={`${status ? 'flex flex-col items-center justify-between' : 'hidden'} max-w-[300px] w-[20%] bg-[#4C9773] h-screen fixed pt-4`}>
+        <section className={`${status ? 'flex flex-col items-center justify-between' : 'invisible'} max-w-[300px] w-[20%] bg-[#4C9773] h-screen fixed pt-4`}>
             <div className="flex flex-col items-center gap-8">
                 <img 
                     src={LogoWhite} 

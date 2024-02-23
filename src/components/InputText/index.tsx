@@ -1,21 +1,26 @@
+import { useId } from "react";
 import { InputsProps } from "../../@types/input";
 
-export default function Input({label, type, placeholder, value, icon, error, inputID, ...props}: InputsProps){
+export default function Input({label, type, placeholder, value, icon, error, readOnly = false, ...props}: InputsProps){
+
+    const id = useId()
+
     return (
         <div className="relative flex flex-col">
-            <label htmlFor={inputID} className="font-semibold bg-[#124C3850] w-max px-4 rounded-sm text-[16px]">
+            <label htmlFor={id} className="font-semibold bg-[#124C3850] w-max px-4 rounded-sm text-[16px]">
                 {label}
             </label>
-            <label htmlFor={inputID} className="relative flex items-center justify-center">
+            <label htmlFor={id} className="relative flex items-center justify-center">
                 {icon}
             <input
                 autoComplete={props.autoComplete || type}
                 type={type}
-                id={inputID}
+                id={id}
                 placeholder={placeholder}
+                readOnly={readOnly}
                 value={value || ''}
                 onChange={props.onChange}
-                className={`${props.className} min-w-[350px] min-h-[35px] outline-none`}
+                className={`${props.className} border-b-[3px] border-solid border-[#124C38] px-1 min-w-[350px] min-h-[35px] outline-none`}
                 />
             </label>
             {error && (
