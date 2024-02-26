@@ -8,7 +8,7 @@ import { IoSearch } from "react-icons/io5";
 import MoradorCard from "../../components/MoradorCard";
 import ListaMoradores from "../../../public/db.json";
 import FilterModal from "../../components/FilterModal";
-import { getResidenciaByFilter } from "../../api";
+// import { getResidenciaByFilter } from "../../api";
 import MoradorModal from "../../components/MoradorModal";
 import { IMorador } from "../../@types/morador";
 
@@ -22,8 +22,8 @@ export default function Moradores() {
   const [nome, setNome] = useState<string>("")
   const [bloco, setBloco] = useState<string>("");
   const [apartamento, setApartamento] = useState<string>("");
-  const [moradores, setMoradores] = useState<Array<string>>([]);
-  const [proprietario, setProprietario] = useState<string>("");
+  const [moradores] = useState<Array<string>>([]);
+  const [proprietario] = useState<string>("");
   
   const [moradorData, setMoradorData] = useState<IMorador>()
 
@@ -31,18 +31,18 @@ export default function Moradores() {
     setSideBar({ status: true, page: "moradores" });
   }, []);
 
-  const getMoradores = async (bloco: string, apartamento: string) => {
-    const response = await getResidenciaByFilter(bloco, apartamento);
+  // const getMoradores = async (bloco: string, apartamento: string) => {
+  //   const response = await getResidenciaByFilter(bloco, apartamento);
 
-    if (!response || !response.moradores) {
-      setProprietario("");
-      setMoradores([]);
-      return;
-    }
-    setProprietario(response?.proprietario);
-    setMoradores(response?.moradores);
-    return;
-  };
+  //   if (!response || !response.moradores) {
+  //     setProprietario("");
+  //     setMoradores([]);
+  //     return;
+  //   }
+  //   setProprietario(response?.proprietario);
+  //   setMoradores(response?.moradores);
+  //   return;
+  // };
 
   // useEffect(() => {
   //     if (bloco && apartamento){
