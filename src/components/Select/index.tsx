@@ -3,7 +3,7 @@ import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { SelectProps } from "../../@types/select";
 
 export default function Select({ options, label = "", item = "", setItem, resetSelect, theme, isAbsolute = false }: SelectProps) {
-    const [select, setSelect] = useState<boolean>(false)
+    const [select, setSelect] = useState<boolean>(false);
 
     useEffect(() => {
         setSelect(false);
@@ -20,6 +20,7 @@ export default function Select({ options, label = "", item = "", setItem, resetS
                     <span
                         className={`w-full py-1 px-2 ${theme == 'black' ? 'text-[#124C38] bg-[#F7FEDD90] hover:bg-[#f3fdcf]' : theme == 'white' && 'text-black bg-[#b0c6aa] hover:bg-[#438e74]'} text-[18px] font-medium cursor-pointer transition-all select-none`}
                         onClick={() => setItem(item)}
+                        key={item}
                     >
                         {item}
                     </span>

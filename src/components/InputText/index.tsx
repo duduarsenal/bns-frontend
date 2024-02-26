@@ -1,9 +1,11 @@
+//React
 import { useId } from "react";
+//Types
 import { InputsProps } from "../../@types/input";
 
 export default function Input({label, type, placeholder, value, icon, error, readOnly = false, ...props}: InputsProps){
 
-    const id = useId()
+    const id = useId();
 
     return (
         <div className="relative flex flex-col">

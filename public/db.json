@@ -1,126 +1,146 @@
 {
   "moradores": [
     {
-      "bloco": "A",
-      "apartamento": 78,
-      "morador": "Mariana de Oliveira",
-      "proprietario": "Mariana Silva"
+        "bloco": "A",
+        "apartamento": 78,
+        "morador": "Mariana de Oliveira",
+        "proprietario": "Mariana Silva",
+        "moradores": ["Tatiane de Oliveira", "Renata da Silva", "Vinícius de Oliveira"]
     },
     {
-      "bloco": "C",
-      "apartamento": 55,
-      "morador": "Antônio da Silva",
-      "proprietario": "Antônio Santos"
+        "bloco": "C",
+        "apartamento": 55,
+        "morador": "Antônio da Silva",
+        "proprietario": "Antônio Santos",
+        "moradores": ["Márcia Lima", "Amanda Almeida", "Carlos da Costa"]
     },
     {
-      "bloco": "B",
-      "apartamento": 19,
-      "morador": "Fernanda Pereira",
-      "proprietario": "Pedro Fernandes"
+        "bloco": "B",
+        "apartamento": 19,
+        "morador": "Fernanda Pereira",
+        "proprietario": "Pedro Fernandes",
+        "moradores": ["Bruno da Costa", "Juliana Lima Pereira", "Ana Luiza Almeida"]
     },
     {
-      "bloco": "D",
-      "apartamento": 38,
-      "morador": "Gustavo Almeida",
-      "proprietario": "Gustavo Lima"
+        "bloco": "D",
+        "apartamento": 38,
+        "morador": "Gustavo Almeida",
+        "proprietario": "Gustavo Lima",
+        "moradores": ["Lucas dos Santos", "Paulo Roberto", "Cristina Alves"]
     },
     {
-      "bloco": "A",
-      "apartamento": 94,
-      "morador": "Aline dos Santos",
-      "proprietario": "Aline Oliveira"
+        "bloco": "A",
+        "apartamento": 94,
+        "morador": "Aline dos Santos",
+        "proprietario": "Aline Oliveira",
+        "moradores": ["Renata da Silva", "Ana Luiza Almeida", "Juliana Lima Pereira"]
     },
     {
-      "bloco": "C",
-      "apartamento": 12,
-      "morador": "Carlos da Costa",
-      "proprietario": "Carlos Pereira"
+        "bloco": "C",
+        "apartamento": 12,
+        "morador": "Carlos da Costa",
+        "proprietario": "Carlos Pereira",
+        "moradores": ["Antônio da Silva", "Aline dos Santos", "Márcia Lima"]
     },
     {
-      "bloco": "B",
-      "apartamento": 86,
-      "morador": "Juliana Lima Pereira",
-      "proprietario": "Lucas da Costa"
+        "bloco": "B",
+        "apartamento": 86,
+        "morador": "Juliana Lima Pereira",
+        "proprietario": "Lucas da Costa",
+        "moradores": ["Fernanda Pereira", "Aline dos Santos", "Rodrigo da Costa"]
     },
     {
-      "bloco": "D",
-      "apartamento": 43,
-      "morador": "Paulo Roberto",
-      "proprietario": "Paulo Alves"
+        "bloco": "D",
+        "apartamento": 43,
+        "morador": "Paulo Roberto",
+        "proprietario": "Paulo Alves",
+        "moradores": ["Gustavo Almeida", "Tatiane de Oliveira", "Renata da Silva"]
     },
     {
-      "bloco": "A",
-      "apartamento": 61,
-      "morador": "Renata da Silva",
-      "proprietario": "Renata Oliveira"
+        "bloco": "A",
+        "apartamento": 61,
+        "morador": "Renata da Silva",
+        "proprietario": "Renata Oliveira",
+        "moradores": ["Vinícius de Oliveira", "Tatiane de Oliveira", "Antônio da Silva"]
     },
     {
-      "bloco": "B",
-      "apartamento": 33,
-      "morador": "Bruno da Costa",
-      "proprietario": "Bruno Lima"
+        "bloco": "B",
+        "apartamento": 33,
+        "morador": "Bruno da Costa",
+        "proprietario": "Bruno Lima",
+        "moradores": ["Vinícius de Oliveira", "Antônio da Silva", "Márcia Lima"]
     },
     {
-      "bloco": "C",
-      "apartamento": 79,
-      "morador": "Amanda Almeida",
-      "proprietario": "Amanda Santos"
+        "bloco": "C",
+        "apartamento": 79,
+        "morador": "Amanda Almeida",
+        "proprietario": "Amanda Santos",
+        "moradores": ["Ana Luiza Almeida", "Fernanda Pereira", "Márcia Lima"]
     },
     {
-      "bloco": "D",
-      "apartamento": 20,
-      "morador": "Lucas dos Santos",
-      "proprietario": "Lucas Almeida"
+        "bloco": "D",
+        "apartamento": 20,
+        "morador": "Lucas dos Santos",
+        "proprietario": "Lucas Almeida",
+        "moradores": ["Larissa da Costa", "Tatiane de Oliveira", "Carlos da Costa"]
     },
     {
-      "bloco": "A",
-      "apartamento": 97,
-      "morador": "Tatiane de Oliveira",
-      "proprietario": "Tatiane Silva"
+        "bloco": "A",
+        "apartamento": 97,
+        "morador": "Tatiane de Oliveira",
+        "proprietario": "Tatiane Silva",
+        "moradores": ["Aline dos Santos", "Gustavo Almeida", "Mariana de Oliveira"]
     },
     {
-      "bloco": "B",
-      "apartamento": 51,
-      "morador": "Rodrigo da Costa",
-      "proprietario": "Rodrigo Almeida"
+        "bloco": "B",
+        "apartamento": 51,
+        "morador": "Rodrigo da Costa",
+        "proprietario": "Rodrigo Almeida",
+        "moradores": ["Vinícius de Oliveira", "Mariana de Oliveira", "Carlos da Costa"]
     },
     {
-      "bloco": "C",
-      "apartamento": 66,
-      "morador": "Márcia Lima",
-      "proprietario": "Márcia da Silva"
+        "bloco": "C",
+        "apartamento": 66,
+        "morador": "Márcia Lima",
+        "proprietario": "Márcia da Silva",
+        "moradores": ["Ana Luiza Almeida", "Aline dos Santos", "Bruno da Costa"]
     },
     {
-      "bloco": "D",
-      "apartamento": 28,
-      "morador": "Cristina Alves",
-      "proprietario": "Cristina Oliveira"
+        "bloco": "D",
+        "apartamento": 28,
+        "morador": "Cristina Alves",
+        "proprietario": "Cristina Oliveira",
+        "moradores": ["Lucas dos Santos", "Antônio da Silva", "Vinícius de Oliveira"]
     },
     {
-      "bloco": "A",
-      "apartamento": 88,
-      "morador": "Vinícius de Oliveira",
-      "proprietario": "Vinícius da Silva"
+        "bloco": "A",
+        "apartamento": 88,
+        "morador": "Vinícius de Oliveira",
+        "proprietario": "Vinícius da Silva",
+        "moradores": ["Juliana Lima Pereira", "Aline dos Santos", "Fernanda Pereira"]
     },
     {
-      "bloco": "B",
-      "apartamento": 17,
-      "morador": "Ana Luiza Almeida",
-      "proprietario": "Ana Luiza da Costa"
+        "bloco": "B",
+        "apartamento": 17,
+        "morador": "Ana Luiza Almeida",
+        "proprietario": "Ana Luiza da Costa",
+        "moradores": ["Renata da Silva", "Cristina Alves", "Larissa da Costa"]
     },
     {
-      "bloco": "C",
-      "apartamento": 72,
-      "morador": "Rafael dos Santos",
-      "proprietario": "Rafael da Silva"
+        "bloco": "C",
+        "apartamento": 72,
+        "morador": "Rafael dos Santos",
+        "proprietario": "Rafael da Silva",
+        "moradores": ["Carlos da Costa", "Bruno da Costa", "Márcia Lima"]
     },
     {
-      "bloco": "D",
-      "apartamento": 41,
-      "morador": "Larissa da Costa",
-      "proprietario": "Larissa Oliveira"
+        "bloco": "D",
+        "apartamento": 41,
+        "morador": "Larissa da Costa",
+        "proprietario": "Larissa Oliveira",
+        "moradores": ["Antônio da Silva", "Ana Luiza Almeida", "Gustavo Almeida"]
     }
-  ],
+],
   "blocosaps": [
     { "bloco": "A", "apartamento": 78 },
     { "bloco": "C", "apartamento": 55 },
@@ -142,5 +162,127 @@
     { "bloco": "B", "apartamento": 17 },
     { "bloco": "C", "apartamento": 72 },
     { "bloco": "D", "apartamento": 41 }
-  ]
+  ],
+  "encomendas": [
+    {
+        "morador": {
+            "nome": "Ana Souza",
+            "bloco": "D",
+            "apartamento": 7
+        },
+        "codrastreio": "0987KLMNOPQRS",
+        "status": false,
+        "dtchegada": "2024-02-25T10:15:36.855Z",
+        "dtretirada": null,
+        "recebedor": null
+    },
+    {
+        "morador": {
+            "nome": "Pedro Almeida",
+            "bloco": "B",
+            "apartamento": 14
+        },
+        "codrastreio": "6543PQRSTUVWX",
+        "status": true,
+        "dtchegada": "2024-01-20T15:30:36.855Z",
+        "dtretirada": "2024-01-20T16:45:36.855Z",
+        "recebedor": "Ana Souza"
+    },
+    {
+        "morador": {
+            "nome": "Mariana Oliveira",
+            "bloco": "C",
+            "apartamento": 3
+        },
+        "codrastreio": "3210XYZQRSTUV",
+        "status": false,
+        "dtchegada": "2024-02-10T09:00:36.855Z",
+        "dtretirada": null,
+        "recebedor": null
+    },
+    {
+        "morador": {
+            "nome": "Roberto Lima",
+            "bloco": "A",
+            "apartamento": 9
+        },
+        "codrastreio": "7890ABCDEFGHIJ",
+        "status": true,
+        "dtchegada": "2024-01-05T12:20:36.855Z",
+        "dtretirada": "2024-01-05T14:00:36.855Z",
+        "recebedor": "Mariana Oliveira"
+    },
+    {
+        "morador": {
+            "nome": "Juliana Santos",
+            "bloco": "B",
+            "apartamento": 17
+        },
+        "codrastreio": "1357JKLMNQRTUV",
+        "status": true,
+        "dtchegada": "2024-02-15T08:45:36.855Z",
+        "dtretirada": "2024-02-15T10:30:36.855Z",
+        "recebedor": "Roberto Lima"
+    },
+    {
+        "morador": {
+            "nome": "Felipe Castro",
+            "bloco": "C",
+            "apartamento": 6
+        },
+        "codrastreio": "2468VWXYZABCD",
+        "status": false,
+        "dtchegada": "2024-02-05T13:10:36.855Z",
+        "dtretirada": null,
+        "recebedor": null
+    },
+    {
+        "morador": {
+            "nome": "Aline Ferreira",
+            "bloco": "D",
+            "apartamento": 4
+        },
+        "codrastreio": "7531NOPQRSTUV",
+        "status": true,
+        "dtchegada": "2024-01-10T17:20:36.855Z",
+        "dtretirada": "2024-01-10T18:15:36.855Z",
+        "recebedor": "Felipe Castro"
+    },
+    {
+        "morador": {
+            "nome": "Ricardo Santos",
+            "bloco": "A",
+            "apartamento": 11
+        },
+        "codrastreio": "2468EFGHIJKLM",
+        "status": true,
+        "dtchegada": "2024-02-20T11:30:36.855Z",
+        "dtretirada": "2024-02-20T12:45:36.855Z",
+        "recebedor": "Aline Ferreira"
+    },
+    {
+        "morador": {
+            "nome": "Camila Pereira",
+            "bloco": "B",
+            "apartamento": 19
+        },
+        "codrastreio": "9876RSTUVWXYZ",
+        "status": false,
+        "dtchegada": "2024-01-15T14:55:36.855Z",
+        "dtretirada": null,
+        "recebedor": null
+    },
+    {
+        "morador": {
+            "nome": "Gustavo Silva",
+            "bloco": "C",
+            "apartamento": 8
+        },
+        "codrastreio": "5432FGHIJKLMNOP",
+        "status": true,
+        "dtchegada": "2024-02-01T19:30:36.855Z",
+        "dtretirada": "2024-02-01T20:15:36.855Z",
+        "recebedor": "Camila Pereira"
+    }
+]
 }

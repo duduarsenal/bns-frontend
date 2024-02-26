@@ -1,5 +1,8 @@
+//Router
 import { Link } from "react-router-dom";
+//Hooks
 import { useFirstUpperCase } from '../../hooks/useFirstUpperCase';
+//Types
 import { INavLinksProps } from "../../@types/sidebar";
 
 export default function NavLink({href, page}: INavLinksProps){

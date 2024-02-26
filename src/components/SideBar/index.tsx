@@ -1,7 +1,12 @@
-import { ISidebarProps } from "../../@types/sidebar";
+//Imgs
 import LogoWhite from "../../assets/logo-white.png";
-import NavLink from "../NavLink";
+//Icons
 import { MdLogout } from "react-icons/md";
+//Components
+import NavLink from "../NavLink";
+//Types
+import { ISidebarProps } from "../../@types/sidebar";
+import { Link } from "react-router-dom";
 
 export default function SideBar({status, page}: ISidebarProps){
     
@@ -19,10 +24,12 @@ export default function SideBar({status, page}: ISidebarProps){
                     <NavLink href='funcionarios' page={page}/>
                 </ul>
             </div>
-            <button className="flex flex-row-reverse items-center justify-center gap-4 text-[#F7FEDD] font-medium text-[20px] hover:bg-[#124C3860] w-full py-4 transition-all rounded-md">
-                <MdLogout className="-mb-[2px]"/>
-                <span>Sair</span>
-            </button>
+            <Link to="/login" className="w-full">
+                <button className="flex flex-row-reverse items-center justify-center gap-4 text-[#F7FEDD] font-medium text-[20px] hover:bg-[#124C3860] w-full py-4 transition-all rounded-md">
+                    <MdLogout className="-mb-[2px]"/>
+                    <span>Sair</span>
+                </button>
+            </Link>
         </section>
     )
 }

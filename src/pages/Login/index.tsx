@@ -2,7 +2,7 @@
 import RioBackgroundv2 from "../../assets/rio-pao-de-acucar-v2.jpg";
 import Logo from "../../assets/logo.png";
 import Input from "../../components/InputText";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ShapeDivider from "../../components/ShapeDivider";
 import { Link, useOutletContext } from "react-router-dom";
 
@@ -14,7 +14,7 @@ interface IUserDataProps {
 export default function Login() {
     const [userInfo, setUserInfo] = useState<IUserDataProps>({email: '', password: ''});
     const [error] = useState<string | undefined>('');
-    const setSideBar: React.ComponentState = useOutletContext(); 
+    const setSideBar: Dispatch<SetStateAction<any>> = useOutletContext(); 
 
     useEffect(() => {
       setSideBar({status: false});
@@ -22,7 +22,7 @@ export default function Login() {
     }, [])
 
   return (
-    <main className="flex flex-row w-full h-screen">
+    <main className="flex flex-row w-full h-screen z-10">
       <div className="w-[40%] h-full relative overflow-hidden">
         <img
           src={RioBackgroundv2}
