@@ -108,14 +108,14 @@ export default function Moradores() {
             key={morador.morador}
             bloco={morador.bloco}
             apartamento={morador.apartamento.toString()}
-            morador={morador.morador}
+            nome={morador.morador}
             proprietario={morador.proprietario}
             moradores={morador.moradores}
             className="hover:scale-[1.02] transition-all hover:bg-[#4C977320]"
             onClick={() => { 
                 setMoradorStatus({status: true, type: 'perfilmorador'}); 
                 setMoradorData({
-                    morador: morador.morador, 
+                    nome: morador.morador, 
                     bloco: morador.bloco, 
                     apartamento: morador.apartamento.toString(), 
                     proprietario: morador.proprietario,
@@ -129,8 +129,8 @@ export default function Moradores() {
         statusModal={moradorStatus}
         setMoradorStatus={setMoradorStatus}
         moradorData={moradorData}
-        morador={nome}
-        setMorador={setNome}
+        nome={nome}
+        setNome={setNome}
         setBloco={setBloco}
         setApartamento={setApartamento}
       />

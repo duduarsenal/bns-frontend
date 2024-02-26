@@ -1,5 +1,3 @@
-//React
-import { Dispatch, SetStateAction } from "react";
 //Components
 import Button from "../Button";
 import NovoMoradorInput from "../NovoMoradorInput";
@@ -7,27 +5,17 @@ import PerfilMoradorInput from "../PerfilMoradorInput";
 //Icons
 import { IoClose } from "react-icons/io5";
 //Types
-import { IMorador } from "../../@types/morador";
-interface IMoradorModal extends IMorador{
-    statusModal: any;
-    setMoradorStatus: Dispatch<SetStateAction<{}>>;
-    resetSelect?: boolean;
-    setResetSelect?: Dispatch<SetStateAction<boolean>> | any;
-    setBloco: Dispatch<SetStateAction<string>>;
-    setApartamento: Dispatch<SetStateAction<string>>;
-    setMorador?: Dispatch<SetStateAction<string>>;
-    moradorData?: IMorador;
-}
+import { IMoradorModal } from "../../@types/moradormodal";
 
 export default function MoradorModal({ 
     statusModal, setMoradorStatus, 
+    nome, setNome,
     bloco, setBloco, 
     apartamento, setApartamento, 
     moradores, 
     proprietario, 
     moradorData, 
-    resetSelect, setResetSelect, 
-    morador, setMorador
+    resetSelect, setResetSelect 
 }: IMoradorModal) {
 
     // const [novoMorador, setNovoMorador] = useState<{}>({}) //Não sei o que fazer aqui ainda
@@ -40,7 +28,7 @@ export default function MoradorModal({
                     <div className="flex flex-col gap-12">
                         {statusModal.type == 'novomorador' && 
                             <NovoMoradorInput
-                                morador={morador} setMorador={setMorador}
+                                nome={nome} setNome={setNome}
                                 bloco={bloco} setBloco={setBloco}
                                 apartamento={apartamento} setApartamento={setApartamento}
                                 proprietario={proprietario}

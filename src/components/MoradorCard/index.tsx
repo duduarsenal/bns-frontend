@@ -6,14 +6,14 @@ interface MoradorProps extends IMorador {
     onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export default function MoradorCard({bloco, apartamento, morador, proprietario, moradores, className, onClick}: MoradorProps){
+export default function MoradorCard({bloco, apartamento, nome, proprietario, moradores, className, onClick}: MoradorProps){
 
     return (
         <section className={`${className} border-[3px] border-[#4C9773] w-full rounded-lg min-h-[80px] px-2 py-1 flex flex-col font-normal text-[#4C9773] cursor-pointer`} onClick={onClick}>
             <div className="flex items-center justify-between h-max w-full">
                 <div className="flex flex-col items-center justify-center w-[200px] overflow-hidden">
                     <span className="font-bold">Morador</span>
-                    <span>{morador}</span>
+                    <span>{nome}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center">
                     <span className="font-bold">Bloco</span>

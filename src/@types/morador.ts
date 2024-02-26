@@ -1,7 +1,7 @@
 export interface IMorador {
     bloco?: string;
     apartamento?: string;
-    morador?: string;
+    nome?: string;
     proprietario?: string;
     moradores?: Array<string>;
 }

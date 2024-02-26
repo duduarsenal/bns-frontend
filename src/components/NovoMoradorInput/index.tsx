@@ -3,25 +3,27 @@ import Input from '../InputText';
 import Select from '../Select';
 //Db
 import ListaMoradores from '../../../public/db.json';
+//Types
+import { INovoMorador } from '../../@types/novomorador';
 
-export default function NovoMoradorInput(props: any) {
 
-    const { 
-        resetSelect,
-        morador = "", setMorador,
-        bloco = "", setBloco, 
-        apartamento = "", setApartamento, 
-        moradores = [], 
-        proprietario = "",
-    } = props;
+
+export default function NovoMoradorInput({        
+  resetSelect,
+  nome = "", setNome,
+  bloco = "", setBloco, 
+  apartamento = "", setApartamento, 
+  moradores = [], 
+  proprietario = ""
+}: INovoMorador) {
 
   return (
     <>
       <Input
         placeholder="Nome"
         label="Nome"
-        value={morador}
-        onChange={(e) => setMorador(e.target.value)}
+        value={nome}
+        onChange={(e) => setNome(e.target.value)}
       />
       <div className='flex flex-col gap-4'>
           <Select
