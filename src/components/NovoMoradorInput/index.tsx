@@ -9,7 +9,7 @@ import { INovoMorador } from '../../@types/novomorador';
 
 
 export default function NovoMoradorInput({        
-  resetSelect,
+  resetSelect = false,
   nome = "", setNome,
   bloco = "", setBloco, 
   apartamento = "", setApartamento, 

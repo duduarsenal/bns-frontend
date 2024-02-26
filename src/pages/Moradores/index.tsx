@@ -90,14 +90,11 @@ export default function Moradores() {
           className="bg-[#4C9773] w-12 h-12 p-2 rounded-full text-[30px] text-[#F7FEDD]"
         />
         <MoradorModal
-          statusModal={moradorStatus}
-          setMoradorStatus={setMoradorStatus}
-          bloco={bloco}
-          setBloco={setBloco}
-          apartamento={apartamento}
-          setApartamento={setApartamento}
-          resetSelect={resetSelect}
-          setResetSelect={setResetSelect}
+          statusModal={moradorStatus} setMoradorStatus={setMoradorStatus}
+          nome={nome} setNome={setNome}
+          bloco={bloco} setBloco={setBloco}
+          apartamento={apartamento} setApartamento={setApartamento}
+          resetSelect={resetSelect} setResetSelect={setResetSelect}
           moradores={moradores}
           proprietario={proprietario}
         />

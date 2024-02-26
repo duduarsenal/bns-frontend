@@ -4,7 +4,7 @@ import { IMorador } from "./morador";
 export interface IMoradorModal extends IMorador{
     statusModal?: any;
     setMoradorStatus: Dispatch<SetStateAction<{}>>;
-    resetSelect: boolean;
+    resetSelect?: boolean;
     setResetSelect?: Dispatch<SetStateAction<boolean>> | any;
     setBloco: Dispatch<SetStateAction<string>>;
     setApartamento: Dispatch<SetStateAction<string>>;
