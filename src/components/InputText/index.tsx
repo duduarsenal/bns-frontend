@@ -26,7 +26,7 @@ export default function Input({label, type, placeholder, value, icon, error, rea
                 />
             </label>
             {error && (
-                <span className="absolute right-0 text-red-400 -bottom-[30%]">
+                <span className="absolute right-0 text-red-400 -bottom-[35%]">
                     {error}
                 </span>
             )}

@@ -9,11 +9,13 @@ function App() {
     status: false,
   });
 
+  const [loading, setLoading] = useState<boolean>(false)
+
   return (
     <main className="flex justify-between">
       <SideBar status={sidebar.status} page={sidebar.page} />
       <div /> {/* Div fantasma para colocar o conteudo para direita e sidebar na esquerda */}
-      <Outlet context={setSideBar} />
+      <Outlet context={{setSideBar, loading, setLoading}} />
     </main>
   );
 }

@@ -7,11 +7,12 @@ import Login from './pages/Login/index.tsx'
 import Moradores from './pages/Moradores/index.tsx'
 import Encomendas from './pages/Encomendas/index.tsx'
 import Funcionarios from './pages/Funcionarios/index.tsx'
+import { SessionProvider } from './context/session.context.tsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <SessionProvider> <App /> </SessionProvider>,
     children: [
       {
         path: "/",
@@ -19,19 +20,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login /> 
       },
       {
         path: "/moradores",
-        element: <Moradores />
+        element: <Moradores /> 
       },
       {
         path: "/encomendas",
-        element: <Encomendas />
+        element: <Encomendas /> 
       },
       {
         path: "/funcionarios",
-        element: <Funcionarios />
+        element: <Funcionarios /> 
       },
     ]
   }

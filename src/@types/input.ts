@@ -6,4 +6,5 @@ export interface InputsProps extends React.InputHTMLAttributes<HTMLInputElement>
     // onChange: FunctionComponent;
     icon?: React.JSX.Element;
     error?: string;
+    loading?: boolean;
 }

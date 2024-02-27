@@ -1,19 +1,25 @@
+//React
 import React, { useEffect, useState } from "react";
+//Router
 import { useOutletContext } from "react-router-dom";
+//components
 import Input from "../../components/InputText";
 import Button from "../../components/Button";
+import MoradorCard from "../../components/MoradorCard";
+import FilterModal from "../../components/FilterModal";
+import MoradorModal from "../../components/MoradorModal";
+//Icons
 import { FiFilter } from "react-icons/fi";
 import { PiPlusBold } from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
-import MoradorCard from "../../components/MoradorCard";
+//Db
 import ListaMoradores from "../../../public/db.json";
-import FilterModal from "../../components/FilterModal";
 // import { getResidenciaByFilter } from "../../api";
-import MoradorModal from "../../components/MoradorModal";
+//Types
 import { IMorador } from "../../@types/morador";
 
 export default function Moradores() {
-  const setSideBar: React.ComponentState = useOutletContext();
+  const { setSideBar }: React.ComponentState = useOutletContext();
   const [search, setSearch] = useState<string>("");
   const [filterStatus, setFilterStatus] = useState<boolean>(false);
   const [moradorStatus, setMoradorStatus] = useState<{}>({status: false, type: ''});
