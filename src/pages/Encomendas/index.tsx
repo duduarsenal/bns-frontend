@@ -38,19 +38,21 @@ export default function Encomendas(){
             />
             <div className="relative">
             <Button
-                icon={<FiFilter />}
                 // onClick={() => setFilterStatus(true)}
                 className="bg-[#4C9773] p-2 rounded-full text-[30px] text-[#F7FEDD]"
-            />
+            >
+                <FiFilter />
+            </Button>
             </div>
             <Button
-            icon={<PiPlusBold />}
             //   onClick={() => {
             //     setMoradorStatus({status: true, type: 'novomorador'});
             //     setFilterStatus(false);
             //   }}
             className="bg-[#4C9773] w-12 h-12 p-2 rounded-full text-[30px] text-[#F7FEDD]"
-            />
+            >
+                <PiPlusBold />
+            </Button>
         </div>
         <ul className="flex flex-col w-full gap-2">
             {ListaMoradores.encomendas.map((encomenda, index) => (

@@ -25,7 +25,7 @@ export default function Input({label, type, placeholder, value, icon, error, rea
                 className={`${props.className} border-b-[3px] border-solid border-[#124C38] px-1 min-w-[350px] min-h-[35px] outline-none`}
                 />
             </label>
-            {error && (
+            {!value && error && (
                 <span className="absolute right-0 text-red-400 -bottom-[35%]">
                     {error}
                 </span>

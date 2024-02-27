@@ -1,7 +1,7 @@
 import { IMorador } from "./morador";
 
 export interface IEncomendas{
-    morador: IMorador;
+    morador: Partial<IMorador>;
     cdrastreio: string;
     status: boolean;
     dtchegada: string;

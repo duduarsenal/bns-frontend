@@ -121,7 +121,7 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
                      />
                 </div>
                 <Button 
-                    text="Salvar" 
+                    content="Salvar" 
                     className="bg-[#32775fbc] text-[#11111190] px-6 py-1 rounded-md font-semibold hover:scale-[1.05] transition-all disabled:hover:scale-100 disabled:select-none disabled:cursor-not-allowed"
                     disabled={!buttonActive}
                 />

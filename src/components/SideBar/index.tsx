@@ -7,6 +7,7 @@ import NavLink from "../NavLink";
 //Types
 import { ISidebarProps } from "../../@types/sidebar";
 import { Link } from "react-router-dom";
+import Button from "../Button";
 
 export default function SideBar({status, page}: ISidebarProps){
     
@@ -25,10 +26,10 @@ export default function SideBar({status, page}: ISidebarProps){
                 </ul>
             </div>
             <Link to="/login" className="w-full">
-                <button className="flex flex-row-reverse items-center justify-center gap-4 text-[#F7FEDD] font-medium text-[20px] hover:bg-[#124C3860] w-full py-4 transition-all rounded-md">
-                    <MdLogout className="-mb-[2px]"/>
+                <Button className="flex flex-row-reverse items-center justify-center gap-4 text-[#F7FEDD] font-medium text-[20px] hover:bg-[#124C3860] w-full py-4 transition-all rounded-md">
+                    <MdLogout />
                     <span>Sair</span>
-                </button>
+                </Button>
             </Link>
         </section>
     )

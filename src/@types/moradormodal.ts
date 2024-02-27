@@ -6,8 +6,10 @@ export interface IMoradorModal extends IMorador{
     setMoradorStatus: Dispatch<SetStateAction<{}>>;
     resetSelect?: boolean;
     setResetSelect?: Dispatch<SetStateAction<boolean>> | any;
+    setNome: Dispatch<SetStateAction<string>>;
     setBloco: Dispatch<SetStateAction<string>>;
     setApartamento: Dispatch<SetStateAction<string>>;
-    setNome: Dispatch<SetStateAction<string>>;
+    setProprietario: Dispatch<SetStateAction<string>>;
+    setMoradores: Dispatch<SetStateAction<string[]>>;
     moradorData?: IMorador;
 }

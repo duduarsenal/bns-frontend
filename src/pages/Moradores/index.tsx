@@ -28,8 +28,8 @@ export default function Moradores() {
   const [nome, setNome] = useState<string>("")
   const [bloco, setBloco] = useState<string>("");
   const [apartamento, setApartamento] = useState<string>("");
-  const [moradores] = useState<Array<string>>([]);
-  const [proprietario] = useState<string>("");
+  const [proprietario, setProprietario] = useState<string>("");
+  const [moradores, setMoradores] = useState<Array<string>>([]);
   
   const [moradorData, setMoradorData] = useState<IMorador>()
 
@@ -37,6 +37,12 @@ export default function Moradores() {
     setSideBar({ status: true, page: "moradores" });
   }, []);
 
+
+  function resetForm(){
+    setNome('')
+    setBloco('')
+    setApartamento('')
+  }
   // const getMoradores = async (bloco: string, apartamento: string) => {
   //   const response = await getResidenciaByFilter(bloco, apartamento);
 
@@ -72,10 +78,11 @@ export default function Moradores() {
         />
         <div className="relative">
           <Button
-            icon={<FiFilter />}
             onClick={() => setFilterStatus(true)}
             className="bg-[#4C9773] p-2 rounded-full text-[30px] text-[#F7FEDD]"
-          />
+          >
+            <FiFilter />
+          </Button>
           <FilterModal
             status={filterStatus}
             setFilterStatus={setFilterStatus}
@@ -88,21 +95,23 @@ export default function Moradores() {
           />
         </div>
         <Button
-          icon={<PiPlusBold />}
           onClick={() => {
             setMoradorStatus({status: true, type: 'novomorador'});
             setFilterStatus(false);
+            resetForm()
           }}
           className="bg-[#4C9773] w-12 h-12 p-2 rounded-full text-[30px] text-[#F7FEDD]"
-        />
+        >
+          <PiPlusBold />
+        </Button>
         <MoradorModal
           statusModal={moradorStatus} setMoradorStatus={setMoradorStatus}
           nome={nome} setNome={setNome}
           bloco={bloco} setBloco={setBloco}
           apartamento={apartamento} setApartamento={setApartamento}
           resetSelect={resetSelect} setResetSelect={setResetSelect}
-          moradores={moradores}
-          proprietario={proprietario}
+          proprietario={proprietario} setProprietario={setProprietario}
+          moradores={moradores} setMoradores={setMoradores}
         />
       </div>
       <ul className="flex flex-col w-full gap-2">
@@ -129,13 +138,13 @@ export default function Moradores() {
         ))}
       </ul>
       <MoradorModal
-        statusModal={moradorStatus}
-        setMoradorStatus={setMoradorStatus}
+        statusModal={moradorStatus} setMoradorStatus={setMoradorStatus}
+        nome={nome} setNome={setNome}
+        bloco={bloco} setBloco={setBloco}
+        apartamento={apartamento} setApartamento={setApartamento}
+        proprietario={proprietario} setProprietario={setProprietario}
+        moradores={moradores} setMoradores={setMoradores}
         moradorData={moradorData}
-        nome={nome}
-        setNome={setNome}
-        setBloco={setBloco}
-        setApartamento={setApartamento}
       />
     </section>
   );

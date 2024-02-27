@@ -53,7 +53,7 @@ export default function Login() {
   }, []);
 
   return (
-    <main className="flex flex-row w-full h-screen z-10">
+    <main className="z-10 flex flex-row w-full h-screen">
       <div className="w-[40%] h-full relative overflow-hidden">
         <img
           src={RioBackgroundv2}
