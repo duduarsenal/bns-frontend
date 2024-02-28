@@ -1,5 +1,5 @@
 //React
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 //Router
 import { useOutletContext } from "react-router-dom"
 //Icons
@@ -15,7 +15,7 @@ import ListaMoradores from "../../../public/db.json";
 
 export default function Encomendas(){
 
-    const setSideBar: React.ComponentState = useOutletContext();
+    const { setSideBar } = useOutletContext<any>();
 
     useEffect(() => {
         setSideBar({status: true, page: 'encomendas'})

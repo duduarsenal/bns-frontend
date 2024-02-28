@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom"
 
 export default function Funcionarios(){
 
-    const setSideBar: React.ComponentState = useOutletContext();
+    const setSideBar: React.ComponentState = useOutletContext<any>();
 
     useEffect(() => {
         setSideBar({status: true, page: 'funcionarios'})

@@ -14,8 +14,10 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
     const [statusEntregue, setStatusEntregue] = useState<boolean>(false)
     const [statusARetirada, setStatusARetirada] = useState<boolean>(false)
     const [statusCancelar, setStatusCancelar] = useState<boolean>(false)
+    const [tempStatus, setTempStatus] = useState<string>('')
 
     const [buttonActive, setButtonActive] = useState<boolean>(false)
+    const [isSaved, setIsSaved] = useState<boolean>(false)
 
     function converteData (dt: string): string{   
 
@@ -34,6 +36,23 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
         const minuto = adicionarZero(dataObjeto.getMinutes());
 
         return `${dia}/${mes}/${ano} ${hora}:${minuto}`;
+    }
+
+    function handleDropDown(){
+        if(tempStatus == 'entregue' && isSaved){
+            setStatusEntregue(true)
+        }
+
+        if(tempStatus == 'cancelado' && isSaved){
+            setStatusCancelar(true)
+        }
+        
+        if(!isSaved) {
+            setStatusARetirada(true)
+        }
+        
+        setTempStatus('')
+        setDropDown(!dropDown);
     }
 
     useEffect(() => {
@@ -65,7 +84,7 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
 
     return (
         <section className={`${className} w-full flex flex-col gap-1 justify-center font-normal text-[#4C9773] cursor-pointer`}>
-            <div className="flex items-center justify-between h-max w-full border-[3px] border-[#4C9773] rounded-lg min-h-[70px] px-2 hover:scale-[1.02] transition-all" onClick={() => setDropDown(!dropDown)}>
+            <div className="flex items-center justify-between h-max w-full border-[3px] border-[#4C9773] rounded-lg min-h-[70px] px-2 hover:scale-[1.02] transition-all" onClick={handleDropDown}>
                 <div className="flex flex-col items-center justify-center w-[180px] overflow-hidden">
                     <span className="font-bold select-none">Destinatario</span>
                     <span>{morador.nome}</span>
@@ -101,14 +120,14 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
             </div>
             <div className={`${!dropDown && '-mt-[70px] !h-0 opacity-0 pointer-events-none'} visible mt-0 transition-all duration-[400ms] h-[50px] bg-[#124C3850] rounded-lg flex items-center justify-around px-4 cursor-default mx-4`}>
                 <div className="flex gap-12">
-                    <span className={`text-[#124C3890] flex gap-2 items-center after:w-[20px] after:h-[20px] ${statusEntregue && 'after:!bg-[#124C3870] after:border-transparent after:content-["✓"]'} after:bg-white after:border-2 after:border-[#124C3890] after:rounded-md after:transition-all font-bold select-none cursor-pointer after:flex after:items-center after:justify-center`} onClick={() => { setStatusEntregue(!statusEntregue); setStatusARetirada(false); setStatusCancelar(false)}}>
+                    <span className={`text-[#124C3890] flex gap-2 items-center after:w-[20px] after:h-[20px] ${(tempStatus == 'entregue' || statusEntregue) && 'after:!bg-[#124C3870] after:border-transparent after:content-["✓"]'} after:bg-white after:border-2 after:border-[#124C3890] after:rounded-md after:transition-all font-bold select-none cursor-pointer after:flex after:items-center after:justify-center`} onClick={() => { setStatusARetirada(false); setStatusCancelar(false); setTempStatus('entregue')}}>
                         Entregue
                     </span>
-                    <span className={`text-[#124C3890] flex gap-2 items-center after:w-[20px] after:h-[20px] ${statusARetirada && 'after:!bg-[#124C3870] after:border-transparent after:content-["✓"]'} after:bg-white after:border-2 after:border-[#124C3890] after:rounded-md after:transition-all font-bold select-none cursor-pointer after:flex after:items-center after:justify-center`} onClick={() => {setStatusARetirada(!statusARetirada); setStatusEntregue(false); setStatusCancelar(false)}}>
+                    <span className={`text-[#11111150] flex gap-2 items-center after:w-[20px] after:h-[20px] ${statusARetirada && 'after:!bg-[#11111150] after:border-transparent after:content-["✓"]'} after:bg-white after:border-2 after:border-[#11111120] after:rounded-md after:transition-all font-bold select-none cursor-pointer after:flex after:items-center after:justify-center`}>
                         A Retirar
                     </span>
-                    <span className={`text-[#124C3890] flex gap-2 items-center after:w-[20px] after:h-[20px] ${statusCancelar && 'after:!bg-[#124C3870] after:border-transparent after:content-["✓"]'} after:bg-white after:border-2 after:border-[#124C3890] after:rounded-md after:transition-all font-bold select-none cursor-pointer after:flex after:items-center after:justify-center`} onClick={() => {setStatusCancelar(!statusCancelar); setStatusARetirada(false); setStatusEntregue(false);}}>
-                        Cancelar
+                    <span className={`text-[#124C3890] flex gap-2 items-center after:w-[20px] after:h-[20px] ${(tempStatus == 'cancelado' || statusCancelar) && 'after:!bg-[#124C3870] after:border-transparent after:content-["✓"]'} after:bg-white after:border-2 after:border-[#124C3890] after:rounded-md after:transition-all font-bold select-none cursor-pointer after:flex after:items-center after:justify-center`} onClick={() => {setStatusARetirada(false); setStatusEntregue(false); setTempStatus('cancelado')}}>
+                        Cancelado
                     </span>
                 </div>
                 <div className="flex items-center justify-center gap-2">

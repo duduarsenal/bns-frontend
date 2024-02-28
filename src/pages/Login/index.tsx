@@ -24,7 +24,7 @@ export default function Login() {
   const [error, setError] = useState<string | undefined>("");
   //Contexts
   const { setSideBar, loading, setLoading }  = useOutletContext<any>();
-  const { setUserData } = useSession();
+  // const { setUserData } = useSession();
   //Navigation
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ export default function Login() {
         const data = await LoginFuncionario(email, password);
         if (data.error) return setError(data?.message || "Erro ao efetuar login");
 
-        setUserData(data);
+        // setUserData(data);
         setError("");
         navigate("/moradores");
       } catch (error) {
@@ -100,7 +100,7 @@ export default function Login() {
 
         <button
           className="cursor-pointer px-12 bg-[#4C9773] text-white rounded-lg min-h-[40px] min-w-[150px] flex items-center justify-center py-1 font-medium text-[20px] hover:bg-opacity-85 transition-all"
-          onClick={authFuncionario}
+          onClick={() => navigate('/moradores')}
         >
           {loading ? (
             <BiLoaderAlt className="font-bold animate-spin" />
