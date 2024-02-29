@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { IMoradorModal } from "./moradormodal";
 import { IMorador } from "./morador";
 
