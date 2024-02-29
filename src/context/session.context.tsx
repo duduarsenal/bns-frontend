@@ -19,7 +19,7 @@ export function SessionProvider({children}: SessionProviderProps){
     const navigate = useNavigate();
 
     async function handleSession() {
-        const data = await SessionFuncionario(); 
+        const data = await SessionFuncionario();
 
         if(data?.error){
             navigate('/login');

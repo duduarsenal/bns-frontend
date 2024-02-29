@@ -7,7 +7,7 @@ export async function SessionFuncionario(){
         return {error: true, message: 'Token não encontrado'}
     }
     
-    const url = import.meta.env.VITE_LOGIN_URL;
+    const url = import.meta.env.VITE_SESSION_URL;
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': user_token

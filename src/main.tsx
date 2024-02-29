@@ -7,13 +7,13 @@ import Login from './pages/Login/index.tsx'
 import Moradores from './pages/Moradores/index.tsx'
 import Encomendas from './pages/Encomendas/index.tsx'
 import Funcionarios from './pages/Funcionarios/index.tsx'
-// import { SessionProvider } from './context/session.context.tsx'
+import { SessionProvider } from './context/session.context.tsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    // element: <SessionProvider> <App /> </SessionProvider>,
+    // element: <App />,
+    element: <SessionProvider> <App /> </SessionProvider>,
     children: [
       {
         path: "/",

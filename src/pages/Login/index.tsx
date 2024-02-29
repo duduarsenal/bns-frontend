@@ -24,20 +24,31 @@ export default function Login() {
   const [error, setError] = useState<string | undefined>("");
   //Contexts
   const { setSideBar, loading, setLoading }  = useOutletContext<any>();
-  // const { setUserData } = useSession();
+  const { setUserData } = useSession();
   //Navigation
   const navigate = useNavigate();
 
   async function authFuncionario() {
-    if (!email || !password) return setError("Preencha todos os campos");
+    if (!email || !password){
+      setError('')
+      setTimeout(() =>{ 
+        setError("Preencha todos os campos");
+      }, 200)
+      return;
+    }
 
+    setError('')
     setLoading(true);
     setTimeout(async () => {
       try {
         const data = await LoginFuncionario(email, password);
-        if (data.error) return setError(data?.message || "Erro ao efetuar login");
-
-        // setUserData(data);
+        if (data.error) {
+          console.log(data);
+          setError("Usuário ou senha incorretos");
+          return;
+        }
+        
+        setUserData(data);
         setError("");
         navigate("/moradores");
       } catch (error) {
@@ -79,6 +90,7 @@ export default function Login() {
               setEmail(e.target.value)
             }
             loading={loading}
+            tela={'login'}
           />
           <Input
             type="password"
@@ -90,6 +102,7 @@ export default function Login() {
               setPassword(e.target.value)
             }
             loading={loading}
+            tela={'login'}
           />
           <div className="flex justify-end w-full">
             <span className="cursor-pointer text-[#4C9773] font-medium transition-all hover:bg-[#124C3830] px-2 rounded-md">
@@ -100,7 +113,7 @@ export default function Login() {
 
         <button
           className="cursor-pointer px-12 bg-[#4C9773] text-white rounded-lg min-h-[40px] min-w-[150px] flex items-center justify-center py-1 font-medium text-[20px] hover:bg-opacity-85 transition-all"
-          onClick={() => navigate('/moradores')}
+          onClick={authFuncionario}
         >
           {loading ? (
             <BiLoaderAlt className="font-bold animate-spin" />

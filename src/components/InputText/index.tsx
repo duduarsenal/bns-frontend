@@ -3,7 +3,7 @@ import { useId } from "react";
 //Types
 import { InputsProps } from "../../@types/input";
 
-export default function Input({label, type, placeholder, value, icon, error, readOnly = false, ...props}: InputsProps){
+export default function Input({label, type, placeholder, value, icon, error, readOnly = false, tela, ...props}: InputsProps){
 
     const id = useId();
 
@@ -20,12 +20,12 @@ export default function Input({label, type, placeholder, value, icon, error, rea
                 id={id}
                 placeholder={placeholder}
                 readOnly={readOnly}
-                value={value || ''}
+                defaultValue={value || ''}
                 onChange={props.onChange}
                 className={`${props.className} border-b-[3px] border-solid border-[#124C38] px-1 min-w-[350px] min-h-[35px] outline-none`}
                 />
             </label>
-            {!value && error && (
+            {(!value && error || error && tela == 'login')   && (
                 <span className="absolute right-0 text-red-400 -bottom-[35%]">
                     {error}
                 </span>

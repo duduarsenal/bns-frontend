@@ -46,40 +46,53 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
         if(tempStatus == 'cancelado' && isSaved){
             setStatusCancelar(true)
         }
-        
-        if(!isSaved) {
-            setStatusARetirada(true)
+
+        if(!tempStatus){
+            status === 1 && setStatusEntregue(true);
+            status === 0 && setStatusARetirada(true);
+            status === -1 && setStatusCancelar(true);
         }
         
         setTempStatus('')
         setDropDown(!dropDown);
     }
 
+    function handleStatusEncomenda(){
+        //Status entregue com nome do Recebedor
+        if(recebedorUpdt.length >= 3 && tempStatus == 'entregue'){
+            setButtonActive(true)
+            return;
+        }
+        //Status a retirar/cancelado sem nome do recebedor
+        if((statusARetirada || (statusCancelar || tempStatus == 'cancelado')) && !recebedorUpdt){
+            setButtonActive(true)
+            return;
+        }
+                
+        setButtonActive(false)
+    }
+
+    function handleAtualizarEncomenda(){
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
+    
     useEffect(() => {
+        status === 1 && setStatusEntregue(true);
+        status === 0 && setStatusARetirada(true);
+        status === -1 && setStatusCancelar(true);
         dtchegada && setDataChegada(converteData(dtchegada));
-        dtretirada && setDataRetirada(converteData(dtretirada));
-        status && setStatusEntregue(true);
-        !status && setStatusARetirada(true);
         recebedor && setRecebedorUpdt(recebedor);
+        dtretirada && setDataRetirada(converteData(dtretirada));
         setButtonActive(false)
     }, [])
 
     useEffect(() => {
-        //Status entregue com nome do Recebedor
-        if(recebedorUpdt.length >= 3 && statusEntregue){
-            setButtonActive(true)
-            return;
-        } else {
-            setButtonActive(false)
-        }
-        //Status a retirar/cancelado sem nome do recebedor
-        if((statusARetirada || statusCancelar) && !recebedorUpdt){
-            setButtonActive(true)
-            return;
-        } else {
-            setButtonActive(false)
-        }
-    }, [statusEntregue, statusARetirada, statusCancelar, recebedorUpdt])
+        handleStatusEncomenda()
+    }, [statusEntregue, statusARetirada, statusCancelar, recebedorUpdt, tempStatus])
 
 
     return (
@@ -133,7 +146,8 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
                 <div className="flex items-center justify-center gap-2">
                     <span className="font-semibold text-[#124C3890]">Recebedor</span>
                     <Input
-                        placeholder="Nome do recebedor"
+                        placeholder={statusCancelar ? 'CANCELADO' : "Nome do recebedor"}
+                        readOnly={statusCancelar}
                         value={recebedorUpdt}
                         onChange={(e) => setRecebedorUpdt(e.target.value)}
                         className="rounded-md border-2 border-b-2 !border-[#124C3890]"
@@ -143,6 +157,7 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
                     content="Salvar" 
                     className="bg-[#32775fbc] text-[#11111190] px-6 py-1 rounded-md font-semibold hover:scale-[1.05] transition-all disabled:hover:scale-100 disabled:select-none disabled:cursor-not-allowed"
                     disabled={!buttonActive}
+                    onClick={handleAtualizarEncomenda}
                 />
             </div>
         </section>

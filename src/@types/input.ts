@@ -7,4 +7,5 @@ export interface InputsProps extends React.InputHTMLAttributes<HTMLInputElement>
     icon?: React.JSX.Element;
     error?: string;
     loading?: boolean;
+    tela?: string;
 }
