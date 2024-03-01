@@ -11,7 +11,8 @@ import Input from "../../components/InputText";
 import Button from "../../components/Button";
 import EncomendasCard from '../../components/EncomendasCard'
 //Db
-import { GetEncomendas } from "../../api/encomendas.get";
+import ListaMoradores from '../../../public/db.json'
+// import { GetEncomendas } from "../../api/encomendas.get";
 import { IEncomendas } from "../../@types/encomendas";
 
 export default function Encomendas(){
@@ -19,15 +20,15 @@ export default function Encomendas(){
     const { setSideBar } = useOutletContext<any>();
     const [encomendas, setEncomendas] = useState<IEncomendas[]>([])
 
-    async function getAllEncomendas(){
-        const data: any = await GetEncomendas();
-        setEncomendas(data);
-    }
+    // async function getAllEncomendas(){
+    //     const data: any = await GetEncomendas();
+    //     setEncomendas(data);
+    // }
 
     useEffect(() => {
         setSideBar({status: true, page: 'encomendas'})
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-        getAllEncomendas()
+        setEncomendas(ListaMoradores.encomendas);
+        // getAllEncomendas()
     }, [])
     
     return(

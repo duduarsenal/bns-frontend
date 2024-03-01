@@ -170,7 +170,7 @@
             "bloco": "D",
             "apartamento": "7"
         },
-        "codrastreio": "0987KLMNOPQRS",
+        "cdrastreio": "0987KLMNOPQRS",
         "status": -1,
         "dtchegada": "2024-02-25T10:15:36.855Z",
         "dtretirada": null,
@@ -182,7 +182,7 @@
             "bloco": "B",
             "apartamento": "14"
         },
-        "codrastreio": "6543PQRSTUVWX",
+        "cdrastreio": "6543PQRSTUVWX",
         "status": 1,
         "dtchegada": "2024-01-20T15:30:36.855Z",
         "dtretirada": "2024-01-20T16:45:36.855Z",
@@ -194,7 +194,7 @@
             "bloco": "C",
             "apartamento": "3"
         },
-        "codrastreio": "3210XYZQRSTUV",
+        "cdrastreio": "3210XYZQRSTUV",
         "status": 0,
         "dtchegada": "2024-02-10T09:00:36.855Z",
         "dtretirada": null,
@@ -206,7 +206,7 @@
             "bloco": "A",
             "apartamento": "9"
         },
-        "codrastreio": "7890ABCDEFGHIJ",
+        "cdrastreio": "7890ABCDEFGHIJ",
         "status": 1,
         "dtchegada": "2024-01-05T12:20:36.855Z",
         "dtretirada": "2024-01-05T14:00:36.855Z",
@@ -218,7 +218,7 @@
             "bloco": "B",
             "apartamento": "17"
         },
-        "codrastreio": "1357JKLMNQRTUV",
+        "cdrastreio": "1357JKLMNQRTUV",
         "status": 1,
         "dtchegada": "2024-02-15T08:45:36.855Z",
         "dtretirada": "2024-02-15T10:30:36.855Z",
@@ -230,7 +230,7 @@
             "bloco": "C",
             "apartamento": "6"
         },
-        "codrastreio": "2468VWXYZABCD",
+        "cdrastreio": "2468VWXYZABCD",
         "status": 0,
         "dtchegada": "2024-02-05T13:10:36.855Z",
         "dtretirada": null,
@@ -242,7 +242,7 @@
             "bloco": "D",
             "apartamento": "4"
         },
-        "codrastreio": "7531NOPQRSTUV",
+        "cdrastreio": "7531NOPQRSTUV",
         "status": 1,
         "dtchegada": "2024-01-10T17:20:36.855Z",
         "dtretirada": "2024-01-10T18:15:36.855Z",
@@ -254,7 +254,7 @@
             "bloco": "A",
             "apartamento": "11"
         },
-        "codrastreio": "2468EFGHIJKLM",
+        "cdrastreio": "2468EFGHIJKLM",
         "status": -1,
         "dtchegada": "2024-02-20T11:30:36.855Z",
         "dtretirada": "2024-02-20T12:45:36.855Z",
@@ -266,7 +266,7 @@
             "bloco": "B",
             "apartamento": "19"
         },
-        "codrastreio": "9876RSTUVWXYZ",
+        "cdrastreio": "9876RSTUVWXYZ",
         "status": -1,
         "dtchegada": "2024-01-15T14:55:36.855Z",
         "dtretirada": null,
@@ -278,7 +278,7 @@
             "bloco": "C",
             "apartamento": "8"
         },
-        "codrastreio": "5432FGHIJKLMNOP",
+        "cdrastreio": "5432FGHIJKLMNOP",
         "status": 0,
         "dtchegada": "2024-02-01T19:30:36.855Z",
         "dtretirada": "2024-02-01T20:15:36.855Z",
