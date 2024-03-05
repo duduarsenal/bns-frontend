@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom"
 
 export default function Funcionarios(){
 
-    const setSideBar: React.ComponentState = useOutletContext<any>();
+    const { setSideBar } = useOutletContext<any>();
 
     useEffect(() => {
         setSideBar({status: true, page: 'funcionarios'})

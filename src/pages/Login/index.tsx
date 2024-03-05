@@ -1,5 +1,5 @@
 //React
-import { useEffect, useState } from "react";
+import { KeyboardEvent, useEffect, useState } from "react";
 //Router
 import { useNavigate, useOutletContext } from "react-router-dom";
 //Imgs
@@ -29,16 +29,18 @@ export default function Login() {
   const navigate = useNavigate();
 
   async function authFuncionario() {
+    setLoading(true);
+    
     if (!email || !password){
       setError('')
       setTimeout(() =>{ 
         setError("Preencha todos os campos");
+        setLoading(false);
       }, 200)
       return;
     }
 
     setError('')
-    setLoading(true);
     setTimeout(async () => {
       try {
         const data = await LoginFuncionario(email, password);
@@ -57,6 +59,12 @@ export default function Login() {
         setLoading(false);
       }
     }, 200);
+  }
+
+  function handleKeyDown(key: string){
+    if(key == 'Enter'){
+      authFuncionario()
+    }
   }
 
   useEffect(() => {
@@ -89,6 +97,7 @@ export default function Login() {
             onChange={(e) =>
               setEmail(e.target.value)
             }
+            onKeyDown={({ key }: KeyboardEvent) => handleKeyDown(key)}
             loading={loading}
             tela={'login'}
           />
@@ -101,6 +110,7 @@ export default function Login() {
             onChange={(e) =>
               setPassword(e.target.value)
             }
+            onKeyDown={({ key }: KeyboardEvent) => handleKeyDown(key)}
             loading={loading}
             tela={'login'}
           />

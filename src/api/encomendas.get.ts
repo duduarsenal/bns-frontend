@@ -12,10 +12,9 @@ export async function GetEncomendas(){
 
     try {
         const response = await axios.get(url, { headers })
-        let encomendas: IEncomendas[] = [];
-
-        Promise.all(response.data.forEach((encomenda: any) => {
-            encomendas.push({
+        const dataStructured = response.data.map((encomenda: any) => (
+            {
+                idencomenda: encomenda._id,
                 morador: {
                     moradorid: encomenda?.destinatario?._id,
                     nome: encomenda?.destinatario?.name,
@@ -29,10 +28,10 @@ export async function GetEncomendas(){
                 dtchegada: encomenda?.dtchegada,
                 dtretirada: encomenda?.dtretirada,
                 recebedor: encomenda?.recebedor
-            })
-        }));
+            }
+        ));
 
-        // console.log(encomendas)
+        const encomendas: IEncomendas[] = await Promise.all(dataStructured) || []
         return encomendas;
     } catch (error) {
         if(error instanceof AxiosError){

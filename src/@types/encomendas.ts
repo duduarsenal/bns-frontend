@@ -1,6 +1,7 @@
 import { IMorador } from "./morador";
 
 export interface IEncomendas{
+    idencomenda: string;
     morador: Partial<IMorador>;
     cdrastreio: string;
     status: number;
@@ -8,4 +9,5 @@ export interface IEncomendas{
     dtretirada?: string | null;
     recebedor?: string | null;
     className?: string;
+    getAllEncomendas: () => void
 }

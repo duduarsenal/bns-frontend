@@ -4,11 +4,13 @@ import { IEncomendas } from "../@types/encomendas";
 export async function UpdateEncomenda(encomendaId: string, encomendaData: Partial<IEncomendas>){
 
     const url = import.meta.env.VITE_ENCOMENDAS_URL+'/'+encomendaId;
+    const token = localStorage.getItem('token');
     const data = {
-        
+        ...encomendaData
     }
     const headers = {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': token
     }
 
     try {

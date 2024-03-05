@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Input from "../InputText";
 import Button from "../Button";
 import { IEncomendas } from "../../@types/encomendas";
+import { UpdateEncomenda } from "../../api/encomendas.update";
+import moment from "moment-timezone";
 
-export default function EncomendasCard({ morador, cdrastreio, status, dtchegada, dtretirada, recebedor, className }: IEncomendas){
+export default function EncomendasCard({ idencomenda, morador, cdrastreio, status, dtchegada, dtretirada, recebedor, className, getAllEncomendas }: IEncomendas){
 
     const [dataChegada, setDataChegada] = useState<string>('')
     const [dataRetirada, setDataRetirada] = useState<string>('')
@@ -17,7 +19,6 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
     const [tempStatus, setTempStatus] = useState<string>('')
 
     const [buttonActive, setButtonActive] = useState<boolean>(false)
-    const [isSaved, setIsSaved] = useState<boolean>(false)
 
     function converteData (dt: string): string{   
 
@@ -39,32 +40,29 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
     }
 
     function handleDropDown(){
-        if(tempStatus == 'entregue' && isSaved){
-            setStatusEntregue(true)
-        }
-
-        if(tempStatus == 'cancelado' && isSaved){
-            setStatusCancelar(true)
-        }
-
         if(!tempStatus){
             status === 1 && setStatusEntregue(true);
             status === 0 && setStatusARetirada(true);
             status === -1 && setStatusCancelar(true);
         }
+
+        if(dropDown && recebedorUpdt !== recebedor){
+            setRecebedorUpdt(recebedor || '')
+        }
         
         setTempStatus('')
-        setDropDown(!dropDown);
+        setButtonActive(false)
+        setDropDown(!dropDown)
     }
 
     function handleStatusEncomenda(){
         //Status entregue com nome do Recebedor
-        if(recebedorUpdt.length >= 3 && tempStatus == 'entregue'){
+        if(recebedorUpdt.length >= 3 && (tempStatus == 'entregue' || statusEntregue)){
             setButtonActive(true)
             return;
         }
         //Status a retirar/cancelado sem nome do recebedor
-        if((statusARetirada || (statusCancelar || tempStatus == 'cancelado')) && !recebedorUpdt){
+        if(!recebedorUpdt && (tempStatus == 'cancelado' || statusCancelar)){
             setButtonActive(true)
             return;
         }
@@ -72,23 +70,41 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
         setButtonActive(false)
     }
 
-    function handleAtualizarEncomenda(){
-        try {
-            
-        } catch (error) {
-            
-        }
+    async function handleAtualizarEncomenda(idencomenda: string){
+            const date = moment(new Date().toISOString()).tz('America/Sao_Paulo').format();
+            let encomendaData: {} = {};
+
+            //Caso não haja mudança em nenhum status, retorna sem realizar nenhuma ação
+            if(((tempStatus != 'entregue' && !statusEntregue) && (tempStatus != 'cancelado' && !statusCancelar))) {
+                console.log('tem erro ae, linha 79 EncomendasCard')
+                return;
+            }
+
+            //Marcar como entregue
+            if((tempStatus === 'entregue' || statusEntregue) && recebedorUpdt && (recebedorUpdt != recebedor)){
+                encomendaData = { status: 1, recebedor: recebedorUpdt, dtretirada: date}
+            }
+
+            //Cancelar encomenda
+            if(tempStatus === 'cancelado' && !recebedorUpdt){        
+                encomendaData = { status: -1, recebedor: '', dtretirada: date}
+            }
+
+            const encomendaResponse = await UpdateEncomenda(idencomenda, encomendaData)
+            // console.log(encomendaResponse)
+            if(encomendaResponse.error) return console.log('error', encomendaResponse.message)
+            getAllEncomendas();
     }
     
     useEffect(() => {
         status === 1 && setStatusEntregue(true);
         status === 0 && setStatusARetirada(true);
         status === -1 && setStatusCancelar(true);
-        dtchegada && setDataChegada(converteData(dtchegada));
-        recebedor && setRecebedorUpdt(recebedor);
         dtretirada && setDataRetirada(converteData(dtretirada));
+        recebedor ? setRecebedorUpdt(recebedor) : setRecebedorUpdt('');
+        dtchegada ? setDataChegada(converteData(dtchegada)) : setDataChegada('');
         setButtonActive(false)
-    }, [])
+    }, [status, dtchegada, recebedor, dtretirada])
 
     useEffect(() => {
         handleStatusEncomenda()
@@ -124,11 +140,11 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
                 </div>
                 <div className="flex flex-col items-center w-[175px] overflow-hidden">
                     <span className="font-bold select-none">Recebedor</span>
-                    <span>{recebedor || 'Aguardando Retirada'}</span>
+                    <span>{recebedor ? recebedor : status == 0 ? 'Aguardando Retirada' : 'Cancelado' }</span>
                 </div>
                 <div className="flex flex-col items-center w-[100px] overflow-hidden">
                     <span className="font-bold select-none">Status</span>
-                    <span>{status ? "Entregue" : 'Não Entregue'}</span>
+                    <span>{status == 1 ? "Entregue" : status == 0 ? 'Não Entregue' : 'Cancelado'}</span>
                 </div>
             </div>
             <div className={`${!dropDown && '-mt-[70px] !h-0 opacity-0 pointer-events-none'} visible mt-0 transition-all duration-[400ms] h-[50px] bg-[#124C3850] rounded-lg flex items-center justify-around px-4 cursor-default mx-4`}>
@@ -146,18 +162,19 @@ export default function EncomendasCard({ morador, cdrastreio, status, dtchegada,
                 <div className="flex items-center justify-center gap-2">
                     <span className="font-semibold text-[#124C3890]">Recebedor</span>
                     <Input
+                        type="text"
                         placeholder={statusCancelar ? 'CANCELADO' : "Nome do recebedor"}
                         readOnly={statusCancelar}
                         value={recebedorUpdt}
                         onChange={(e) => setRecebedorUpdt(e.target.value)}
                         className="rounded-md border-2 border-b-2 !border-[#124C3890]"
-                     />
+                    />
                 </div>
                 <Button 
                     content="Salvar" 
                     className="bg-[#32775fbc] text-[#11111190] px-6 py-1 rounded-md font-semibold hover:scale-[1.05] transition-all disabled:hover:scale-100 disabled:select-none disabled:cursor-not-allowed"
                     disabled={!buttonActive}
-                    onClick={handleAtualizarEncomenda}
+                    onClick={() => handleAtualizarEncomenda(idencomenda)}
                 />
             </div>
         </section>
