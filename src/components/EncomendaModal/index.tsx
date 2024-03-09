@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import Modal from "../Modal";
 import Input from "../InputText";
+import { IEncomendaModal } from "../../@types/encomendamodal";
+import box1 from '/public/box-close.png';
+import box2 from '/public/box-open.png';
+import Button from "../Button";
+import Select from "../Select";
 
-export default function EncomendaModal({ encomendaStatus, setEncomendaStatus }: any) {
+export default function EncomendaModal({ encomendaStatus, setEncomendaStatus, morador, setMorador, cdrastreio, setCdrastreio, destinatario, setDestinatario, bloco, setBloco }: IEncomendaModal) {
 
 const [changeEffect, setChangeEffect] = useState<number>(0);
 
@@ -27,15 +32,54 @@ function handleEscapeModal() {
     handleEscapeModal();
   }, [changeEffect]);
 
+  function handleCadastrarEncomenda(){
+    
+  }
+
   return (
     <>
-      <Modal status={encomendaStatus} onClose={() => setEncomendaStatus(false)}>
-        <>
-            <Input 
-                placeholder="destinatario"
-                
-            />
-        </>
+      <Modal 
+        status={true} 
+        onClose={() => setEncomendaStatus(false)}
+        className=""
+      >
+        <h1 className="text-[30px] font-semibold text-[#0e2b21] bg-[#124C3850] px-4 rounded-lg">
+          Nova Encomenda
+        </h1>
+        <div className="relative flex items-center justify-between w-full h-full px-4 pb-4">
+          <section className="flex flex-col items-center justify-center h-full gap-4">
+              <Input
+                  label="Destinatario"
+                  placeholder="Eduardo da Silva de Souza"
+                  value={destinatario}
+                  onChange={(e) => setDestinatario(e.target.value)}
+              />
+              <Input
+                  label="Código de Rastreio"
+                  placeholder="AA123456789BR"
+                  value={cdrastreio}
+                  onChange={(e) => setCdrastreio(e.target.value)}
+              />
+              <Select 
+                label="Bloco"
+                options={['A', 'B', 'C', 'D']}
+                item={bloco}
+                setItem={setBloco}
+                resetSelect={!encomendaStatus}
+                theme="white"
+                isAbsolute={true}
+              />
+          </section>
+          <section className="relative w-2/4 h-full overflow-hidden">
+            <img src={box1} alt="Caixa de encomenda Fechada" className="absolute z-30 w-56 right-40 top-24 opacity-90" />
+            <img src={box2} alt="Caixa de encomenda Fechada" className="absolute right-0 z-20 top-10 w-52 opacity-80"/>
+          </section>
+        </div>
+        <Button
+            content="Cadastrar"
+            className="bg-[#4C9773] px-8 py-4 rounded-2xl hover:bg-[#124C38] transition-all text-[#F7FEDD] font-medium text-[18px]"
+            onClick={handleCadastrarEncomenda}
+        />
       </Modal>
     </>
   );

@@ -16,6 +16,7 @@ import { GetEncomendas } from "../../api/encomendas.get";
 import { IEncomendas } from "../../@types/encomendas";
 import FilterModal from "../../components/FilterModal";
 import EncomendaModal from "../../components/EncomendaModal";
+import { IMorador } from "../../@types/morador";
 
 export default function Encomendas(){
     //Context
@@ -32,8 +33,8 @@ export default function Encomendas(){
     const [apartamento, setApartamento] = useState<string>('');
     //Dados de uma Nova Encomenda
     const [destinatario, setDestinatario] = useState<string>('');
-    const [cdrastreio, setCdrastreio] = useState<string>('');
-
+    const [cdrastreio, setCdrastreio] = useState<string>('');   
+    const [morador, setMorador] = useState<Partial<IMorador>>({})
 
     async function getAllEncomendas(){
         const data: any = await GetEncomendas();
@@ -68,14 +69,10 @@ export default function Encomendas(){
                     <FiFilter />
                 </Button>
                 <FilterModal
-                    status={filterStatus}
-                    setFilterStatus={setFilterStatus}
-                    bloco={bloco}
-                    setBloco={setBloco}
-                    apartamento={apartamento}
-                    setApartamento={setApartamento}
-                    resetSelect={resetSelect}
-                    setResetSelect={setResetSelect}
+                    status={filterStatus} setFilterStatus={setFilterStatus}
+                    bloco={bloco} setBloco={setBloco}
+                    apartamento={apartamento} setApartamento={setApartamento}
+                    resetSelect={resetSelect} setResetSelect={setResetSelect}
                 />
             </div>
                 <Button
@@ -88,8 +85,11 @@ export default function Encomendas(){
                     <PiPlusBold />
                 </Button>
                 <EncomendaModal
-                    encomendaStatus={encomendaStatus}
-                    setEncomendaStatus={setEncomendaStatus}
+                    encomendaStatus={encomendaStatus} setEncomendaStatus={setEncomendaStatus}
+                    destinatario={destinatario} setDestinatario={setDestinatario}
+                    cdrastreio={cdrastreio} setCdrastreio={setCdrastreio}
+                    morador={morador} setMorador={setMorador}
+                    bloco={bloco} setBloco={setBloco}
                 />
             </div>
             <ul className="flex flex-col w-full gap-2">
