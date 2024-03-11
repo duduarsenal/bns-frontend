@@ -1,31 +1,72 @@
-import { useEffect, useState } from "react"
-import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { useEffect, useState } from "react";
 import { SelectProps } from "../../@types/select";
+import Input from "../InputText";
 
-export default function Select({ options, label, item, setItem, resetSelect, theme, isAbsolute = false, error }: SelectProps) {
-    const [select, setSelect] = useState<boolean>(false);
+export default function Select({
+  options,
+  label,
+  item,
+  setItem,
+  resetSelect,
+  theme,
+  isAbsolute = false,
+  error,
+}: SelectProps) {
+  const [select, setSelect] = useState<boolean>(false);
+  const [selectStyle, setSelectStyle] = useState<string>('');
+  const [temaStyle, setTemaStyle] = useState<string>("");
 
-    useEffect(() => {
-        setSelect(false);
-    }, [resetSelect])
+  //Reset no select
+  useEffect(() => {
+    setSelect(false);
+  }, [resetSelect]);
 
-    return (
-        <div className={`${isAbsolute && 'relative'} w-full transition-all cursor-pointer min-h-8 h-max rounded-t-md rounded-tr-md`} onClick={() => setSelect(!select)}>
-            <div className={`${theme == 'black' ? `text-[#124C38] bg-[#f7fedde2] hover:bg-[#f3fdcf] ${select && '!bg-[#f3fdcf]'}` : theme  == 'white' && `text-black bg-[#b0c6aa] hover:bg-[#32775fbc] ${select && '!bg-[#32775fbc]'}`} flex items-center h-full w-full  rounded-t-md rounded-tr-md transition-all overflow-hidden border-t-[3px] border-r-[3px] border-l-[3px] border-[#124c388b]`}>
-                <p className={`py-1 px-1.5 text-[18px] font-medium select-none ${!item && error && 'after:content-["*"] after:text-[20px] after:bg-transparent after:text-red-500 after:w-max after:h-max after:pl-1'}`}>{item ? label+' '+item : 'Selecione um ' + label}</p>
-                <MdOutlineKeyboardArrowUp className={`${!select && '-rotate-180'} transition-all duration-300 text-[32px]`}/>
-            </div>
-            <div className={`${select ? `opacity-100 ${label == 'Bloco' ? 'h-[140px] z-40 overflow-y-hidden' : 'h-[210px] z-30'} max-h-[210px] mr-0` : `opacity-0 h-0 w-0 -mr-[200px] pointer-events-none ${label == 'Bloco' && 'overflow-y-hidden'}`} ${isAbsolute && 'absolute top-9 left-0 z-20'} flex flex-col overflow-y-auto w-full bg-[#F7FEDD90] rounded-b-md rounded-bl-md transition-all duration-500 border-b-[3px] border-r-[3px] border-l-[3px] border-[#124c388b]`}>
-                {options.map((item: string, index: number) => (
-                    <span
-                        key={index}
-                        className={`w-full py-1 px-2 ${theme == 'black' ? 'text-[#124C38] bg-[#F7FEDD90] hover:bg-[#f3fdcf]' : theme == 'white' && 'text-black bg-[#b0c6aa] hover:bg-[#438e74]'} text-[18px] font-medium cursor-pointer transition-all select-none`}
-                        onClick={() => setItem(item)}
-                    >
-                        {item}
-                    </span>
-                ))}
-            </div>
+  //Mudar tema
+  useEffect(() => {
+    setTemaStyle(theme == 'white' 
+    ? "text-[#F7FEDD] bg-[#124C38] hover:bg-[#438e74]"
+    : "text-[#124C38] bg-white hover:bg-[#c3ddd0]")
+  }, [theme]);
+
+  //Mudar select
+  useEffect(() => {
+    const newSelectStyle = select 
+    ? `opacity-100 ${label == 'Bloco' ? 'h-[140px] z-30 overflow-y-hidden' : 'h-[210px] z-30'} max-h-[210px] mr-0`
+    : `opacity-0 h-0 w-0 -mr-[200px] pointer-events-none ${label == 'Bloco' && 'overflow-y-hidden'}`
+    setSelectStyle(newSelectStyle)
+  }, [select])
+
+  function handleSelect(selectedItem: string) {
+    setItem(selectedItem);
+    setSelect(false);
+  };
+
+  return (
+    <div className={`${isAbsolute && "relative"} w-full`}>
+        <Input
+            className={`${temaStyle} relative min-h-8 h-8 w-full flex items-center rounded-t-md rounded-tr-md font-medium px-1.5 outline-none`}
+            value={item}
+            setValue={setItem}
+            type="select"
+            label="Bloco"
+            onFocus={() => setSelect(true)}
+            select={select ? 1 : 0}
+            setSelect={setSelect}
+            error={error}
+        />
+        <div
+            className={`${selectStyle} ${isAbsolute && 'absolute top-11 left-0 z-20'} flex flex-col w-full overflow-y-auto bg-brand-yellow-white rounded-b-md rounded-bl-md transition-all duration-500 border-[3px] border-brand-light-green`}
+        >
+            {options.map((item: string, index: number) => (
+            <span
+                key={index}
+                className={`${temaStyle} w-full py-1 px-1.5 text-[18px] font-medium cursor-pointer transition-all select-none`}
+                onClick={() => handleSelect(item)}
+            >
+                {item}
+            </span>
+            ))}
         </div>
-    )
+    </div>
+  );
 }

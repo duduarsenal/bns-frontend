@@ -47,27 +47,27 @@ function handleEscapeModal() {
           Nova Encomenda
         </h1>
         <div className="relative flex items-center justify-between w-full h-full px-4 pb-4">
-          <section className="flex flex-col items-center justify-center h-full gap-4">
+          <section className="flex flex-col items-center justify-center h-full gap-6">
               <Input
                   label="Destinatario"
-                  placeholder="Eduardo da Silva de Souza"
                   value={destinatario}
                   onChange={(e) => setDestinatario(e.target.value)}
+                  setValue={setDestinatario}     
               />
               <Input
                   label="Código de Rastreio"
-                  placeholder="AA123456789BR"
                   value={cdrastreio}
                   onChange={(e) => setCdrastreio(e.target.value)}
+                  setValue={setCdrastreio}
               />
               <Select 
-                label="Bloco"
-                options={['A', 'B', 'C', 'D']}
-                item={bloco}
-                setItem={setBloco}
-                resetSelect={!encomendaStatus}
-                theme="white"
-                isAbsolute={true}
+                  label="Bloco"
+                  options={['A', 'B', 'C', 'D']}
+                  item={bloco}
+                  setItem={setBloco}
+                  resetSelect={!encomendaStatus}
+                  theme="black"
+                  isAbsolute={true}
               />
           </section>
           <section className="relative w-2/4 h-full overflow-hidden">

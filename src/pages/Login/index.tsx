@@ -94,9 +94,7 @@ export default function Login() {
             placeholder="funcionario@email.com"
             value={email}
             error={error}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
+            setValue={setEmail}
             onKeyDown={({ key }: KeyboardEvent) => handleKeyDown(key)}
             loading={loading}
             tela={'login'}
@@ -107,9 +105,7 @@ export default function Login() {
             placeholder="senhaforte123@"
             value={password}
             error={error}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
+            setValue={setPassword}
             onKeyDown={({ key }: KeyboardEvent) => handleKeyDown(key)}
             loading={loading}
             tela={'login'}
