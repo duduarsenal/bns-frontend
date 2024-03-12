@@ -91,7 +91,6 @@ export default function Login() {
           <Input
             type="email"
             label="E-mail"
-            placeholder="funcionario@email.com"
             value={email}
             error={error}
             setValue={setEmail}
@@ -102,7 +101,6 @@ export default function Login() {
           <Input
             type="password"
             label="Senha"
-            placeholder="senhaforte123@"
             value={password}
             error={error}
             setValue={setPassword}
@@ -111,14 +109,14 @@ export default function Login() {
             tela={'login'}
           />
           <div className="flex justify-end w-full">
-            <span className="cursor-pointer text-[#4C9773] font-medium transition-all hover:bg-[#124C3830] px-2 rounded-md">
+            <span className="cursor-pointer text-[#4C9773] font-medium transition-all hover:bg-[#124C3830] px-2 rounded-md select-none">
               Esqueceu a senha?
             </span>
           </div>
         </div>
 
         <button
-          className="cursor-pointer px-12 bg-[#4C9773] text-white rounded-lg min-h-[40px] min-w-[150px] flex items-center justify-center py-1 font-medium text-[20px] hover:bg-opacity-85 transition-all"
+          className="cursor-pointer px-12 bg-[#4C9773] text-white rounded-lg min-h-[40px] min-w-[150px] flex items-center justify-center py-1 font-medium text-[20px] hover:bg-opacity-85 transition-all select-none"
           onClick={authFuncionario}
         >
           {loading ? (
