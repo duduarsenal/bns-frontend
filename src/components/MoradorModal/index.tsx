@@ -2,8 +2,6 @@
 import Button from "../Button";
 import NovoMoradorInput from "./NovoMoradorInput";
 import PerfilMoradorInput from "./PerfilMoradorInput";
-//Icons
-import { IoClose } from "react-icons/io5";
 //Types
 import { IMoradorModal } from "../../@types/moradormodal";
 import { useEffect, useState } from "react";

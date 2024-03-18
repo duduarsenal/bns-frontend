@@ -9,4 +9,5 @@ export interface InputsProps extends React.InputHTMLAttributes<HTMLInputElement>
     onFocus?: () => void;
     onBlur?: () => void;
     setValue: (value: string) => void;
+    resetSelect?: boolean;
 }

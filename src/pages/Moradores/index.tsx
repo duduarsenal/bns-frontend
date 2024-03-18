@@ -66,15 +66,15 @@ export default function Moradores() {
     <section className="flex flex-col items-center justify-start w-[80%] p-4 overflow-hidden">
       <div className="flex gap-12 pb-4">
         <Input
-          type="text"
+          type="search"
           placeholder="Digite um nome"
           value={search}
-          autoComplete="false"
+          setValue={setSearch}
+          autoComplete="off"
           icon={
             <IoSearch className="absolute left-0 ml-2 text-[28px] text-[#F7FEDD]" />
           }
-          onChange={(e) => setSearch(e.target.value)}
-          className="rounded-3xl w-[450px] px-4 bg-[#4C9773] text-[18px] h-12 text-[#F7FEDD] placeholder:text-[#F7FEDD90] !pl-10"
+          className="rounded-3xl w-[450px] bg-[#4C9773] text-[18px] h-12 text-[#F7FEDD] placeholder:text-[#F7FEDD90] !pl-10 outline-none"
         />
         <div className="relative">
           <Button

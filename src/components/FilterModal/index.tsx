@@ -24,7 +24,7 @@ export default function FilterModal({
 }: IFilterModal){
 
     return (
-        <div className={`${!status && 'invisible opacity-0'} flex z-10 flex-col gap-4 items-center absolute top-0 right-0 rounded-lg py-4 px-3 pt-12 w-[320px] max-h-auto h-max min-h-[200px] bg-[#4C9773] border-[3px] border-[#124C3870] transition-all duration-[400ms]`}>
+        <div className={`${!status && 'invisible opacity-0'} flex z-10 flex-col gap-6 items-center absolute top-0 right-0 rounded-lg py-4 px-3 pt-12 w-[320px] max-h-auto h-max min-h-[200px] bg-[#4C9773] border-[3px] border-[#124C3870] transition-all duration-[400ms]`}>
             <Button 
                 onClick={() => { 
                     setFilterStatus(false); 
@@ -44,6 +44,7 @@ export default function FilterModal({
                 resetSelect={resetSelect}
                 setItem={setBloco}
                 theme="black"
+                isAbsolute={false}
             />
             
             <Select 
@@ -53,6 +54,7 @@ export default function FilterModal({
                 resetSelect={resetSelect}
                 setItem={setApartamento}
                 theme="black"
+                isAbsolute={false}
             />
             
             <Button 

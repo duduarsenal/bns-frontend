@@ -28,13 +28,12 @@ export default function NovoMoradorInput({
   return (
     <>
       <Input
-        placeholder="Nome"
         label="Nome"
         value={nome}
-        onChange={(e) => setNome(e.target.value)}
+        setValue={setNome}
         error={error}
       />
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-6'>
           <Select
             options={[
               ...new Set(
@@ -45,7 +44,7 @@ export default function NovoMoradorInput({
             item={bloco}
             resetSelect={resetSelect}
             setItem={setBloco}
-            theme="white"
+            theme="black"
             isAbsolute={true}
             error={error}
           />
@@ -59,22 +58,24 @@ export default function NovoMoradorInput({
             item={apartamento}
             resetSelect={resetSelect}
             setItem={setApartamento}
-            theme="white"
+            theme="black"
             isAbsolute={true}
             error={error}
           />
           <Input
-            placeholder="Proprietario da casa"
             label="Proprietario da casa"
             readOnly={true}
+            disabled={true}
             value={proprietario}
+            setValue={console.log}
             error={error}
           />
           <Input
-            placeholder="Moradores"
             label="Moradores"
             readOnly={true}
-            className={`${moradores.length > 0 && "hidden"}`}
+            disabled={true}
+            className={`${moradores.length ? "hidden" : "w-full h-8 outline-none"}`}
+            setValue={console.log}
             error={error}
           />
           <div

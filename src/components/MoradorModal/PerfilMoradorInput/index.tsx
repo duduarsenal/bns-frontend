@@ -5,11 +5,11 @@ import Input from "../../InputText";
 import ListaMoradores from '../../../../public/db.json';
 import Select from "../../Select";
 
-export default function PerfilMoradorInput({        
+export default function PerfilMoradorInput({
   resetSelect = false,
   nome, setNome,
-  bloco = "", setBloco, 
-  apartamento = "", setApartamento, 
+  bloco = "", setBloco,
+  apartamento = "", setApartamento,
   proprietario = "", setProprietario,
   moradores = [], setMoradores,
   moradorData,
@@ -32,85 +32,68 @@ export default function PerfilMoradorInput({
         label="Nome"
         readOnly={!editPerfil}
         value={nome}
-        onChange={(e) => setNome(e.target.value)}
+        setValue={setNome}
         error={error}
       />
-      <div className='flex flex-col gap-2'>
-        {editPerfil ?
-          <div className='flex flex-col gap-4 mb-2'>
-            <Select
-              options={[
-                ...new Set(
-                  ListaMoradores.blocosaps.map((item: any) => item.bloco).sort()
-                ),
-              ]}
-              label="Bloco"
-              item={bloco}
-              resetSelect={resetSelect}
-              setItem={setBloco}
-              theme="white"
-              isAbsolute={true}
-              error={error}
-            />
-            <Select
-              options={[
-                ...new Set(
-                  ListaMoradores.blocosaps.map((item: any) => item.apartamento).sort()
-                ),
-              ]}
-              label="Apartamento"
-              item={apartamento}
-              resetSelect={resetSelect}
-              setItem={setApartamento}
-              theme="white"
-              isAbsolute={true}
-              error={error}
-            />
-          </div>
-          :
-          <>
-            <Input
-              placeholder="Bloco"
-              label="Bloco"
-              readOnly={!editPerfil}
-              value={bloco}
-              onChange={(e) => setBloco(e.target.value)}
-              error={error}
-            />
-            <Input
-              placeholder="Apartamento"
-              label="Apartamento"
-              readOnly={!editPerfil}
-              value={apartamento}
-              onChange={(e) => setApartamento(e.target.value)}
-              error={error}
-            />
-          </>
-        }
+      <div className='flex flex-col gap-8'>
+
+        <Select
+          options={[
+            ...new Set(
+              ListaMoradores.blocosaps.map((item: any) => item.bloco).sort()
+            ),
+          ]}
+          label="Bloco"
+          item={bloco}
+          resetSelect={resetSelect}
+          setItem={setBloco}
+          theme="black"
+          isAbsolute={true}
+          error={error}
+        />
+        <Select
+          options={[
+            ...new Set(
+              ListaMoradores.blocosaps.map((item: any) => item.apartamento).sort()
+            ),
+          ]}
+          label="Apartamento"
+          item={apartamento}
+          resetSelect={resetSelect}
+          setItem={setApartamento}
+          theme="black"
+          isAbsolute={true}
+          error={error}
+        />
         <Input
           placeholder="Proprietario da casa"
           label="Proprietario da casa"
           readOnly={!editPerfil}
           value={proprietario}
-          error={error}
-        />
-        <Input
-          placeholder="Moradores"
-          label="Moradores"
-          readOnly={!editPerfil}
-          className={`${moradores?.length && "hidden"}`}
-          value={moradores[0] || ''}
+          setValue={console.log}
           error={error}
         />
         <div
-          className={`${!moradores?.length && "invisible"} flex flex-col w-full items-start justify-start -mt-2`}
+          className={`${!moradores?.length && "invisible"} flex flex-col w-full items-start justify-start`}
         >
-          {moradores?.length &&
-            moradores?.map((morador: string, index: number) => (
-              <p key={index} className="text-[#0f3024] font-medium">
-                {morador}
-              </p>
-            ))}
+          {moradores?.length
+            ? <div className="-mt-4">
+              <h1 className="font-medium text-brand-dark-green">Moradores</h1>
+              {moradores?.map((morador: string, index: number) => (
+                <p key={index} className="text-[#0f3024] font-normal">
+                  {morador}
+                </p>
+              ))}
+            </div>
+            : <Input
+              placeholder="Moradores"
+              label="Moradores"
+              readOnly={!editPerfil}
+              value={moradores[0] || ''}
+              setValue={console.log}
+              error={error}
+            />
+          }
         </div>
       </div>
     </>
